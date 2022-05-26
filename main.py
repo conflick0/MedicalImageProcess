@@ -28,17 +28,22 @@ def test_ptn2img():
 
 
 def test_ptn2nrrd():
-    ptn_path = r'C:\Users\cg\Downloads\latest_segment_512_512_267.ptn'
-    nrrd_path = r'C:\Users\cg\Downloads\latest_segment_512_512_267.nrrd'
-    cvt.ptn2nrrd(ptn_path, nrrd_path, ptn_shape=(512, 512, 267))
+    ptn_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.ptn'
+    nrrd_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.nrrd'
+    header = {
+        'space': 'left-posterior-superior',
+        'space directions': [[0.37695312, 0, 0], [0, 0.37695312, 0], [0, 0, 0.5]],
+        'space origin': [-67.31152344, -279.31152344, -293],
+    }
+    cvt.ptn2nrrd(ptn_path, nrrd_path, ptn_shape=(512, 512, 267), header=header)
 
 
 def test_nrrd2ptn():
-    ptn_path = r'C:\Users\cg\Downloads\latest_segment_512_512_267.ptn'
-    nrrd_path = r'C:\Users\cg\Downloads\latest_segment_512_512_267.nrrd'
+    ptn_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.ptn'
+    nrrd_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.nrrd'
     cvt.nrrd2ptn(nrrd_path, ptn_path)
 
 
 if __name__ == '__main__':
     test_ptn2nrrd()
-    # test_nrrd2ptn()
+    test_nrrd2ptn()

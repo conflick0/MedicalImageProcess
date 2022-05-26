@@ -63,21 +63,22 @@ def img2ptn(img_dir, ptn_path):
     io.write_ptn(imgs, ptn_path)
 
 
-def ptn2nrrd(ptn_path, nrrd_path, ptn_shape):
+def ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header=None):
     """
     Convert ptn to nrrd.
     param: ptn_dir: ptn dir
     param: nrrd_path: nrrd path
     param: ptn_shape: shape of ptn, ex. (512, 512, 267)
+    param: header: header of nrrd, default is None
     """
     imgs = io.read_ptn(ptn_path, ptn_shape)
-    io.write_nrrd(imgs, nrrd_path)
+    io.write_nrrd(imgs, nrrd_path, header)
 
 
 def nrrd2ptn(nrrd_path, ptn_path):
     """
     Convert ptn to nrrd.
-        param: nrrd_path: nrrd path
+    param: nrrd_path: nrrd path
     param: ptn_dir: ptn dir
     """
     imgs = io.read_nrrd(nrrd_path)
