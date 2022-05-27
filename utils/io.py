@@ -52,6 +52,7 @@ def read_imgs(img_dir):
     for img_f in tqdm(img_fs):
         img_pth = os.path.join(img_dir, img_f)
         img = Image.open(img_pth)
+        img = img.resize((512, 512))
         imgs.append(img)
     return imgs
 
