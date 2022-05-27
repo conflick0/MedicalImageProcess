@@ -33,6 +33,7 @@ def img2nrrd(img_dir, nrrd_path, header=None):
     Convert img to nrrd.
     param: img_dir: img dir
     param: nrrd_path: nrrd path
+    param: header: header of nrrd, default is None
     """
     imgs = io.read_imgs(img_dir)
     io.write_nrrd(imgs, nrrd_path, header)
