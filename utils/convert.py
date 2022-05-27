@@ -28,14 +28,14 @@ def nrrd2img(nrrd_path, img_dir, save_img_type='jpg'):
     io.write_imgs(imgs, img_dir, save_img_type)
 
 
-def img2nrrd(img_dir, nrrd_path):
+def img2nrrd(img_dir, nrrd_path, header=None):
     """
     Convert img to nrrd.
     param: img_dir: img dir
     param: nrrd_path: nrrd path
     """
     imgs = io.read_imgs(img_dir)
-    io.write_nrrd(imgs, nrrd_path)
+    io.write_nrrd(imgs, nrrd_path, header)
 
 
 def ptn2img(ptn_path, img_dir, ptn_shape, save_img_type='jpg'):
