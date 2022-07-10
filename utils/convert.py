@@ -28,7 +28,7 @@ def nrrd2img(nrrd_path, img_dir, save_img_type='jpg'):
     io.write_imgs(imgs, img_dir, save_img_type)
 
 
-def img2nrrd(img_dir, nrrd_path, header=None):
+def img2nrrd(img_dir, nrrd_path, header=None, is_flip=True):
     """
     Convert img to nrrd.
     param: img_dir: img dir
@@ -36,7 +36,7 @@ def img2nrrd(img_dir, nrrd_path, header=None):
     param: header: header of nrrd, default is None
     """
     imgs = io.read_imgs(img_dir)
-    io.write_nrrd(imgs, nrrd_path, header)
+    io.write_nrrd(imgs, nrrd_path, header, is_flip)
 
 
 def ptn2img(ptn_path, img_dir, ptn_shape, save_img_type='jpg'):
@@ -64,7 +64,7 @@ def img2ptn(img_dir, ptn_path):
     io.write_ptn(imgs, ptn_path)
 
 
-def ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header=None):
+def ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header=None, is_flip=True):
     """
     Convert ptn to nrrd.
     param: ptn_dir: ptn dir
@@ -73,7 +73,7 @@ def ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header=None):
     param: header: header of nrrd, default is None
     """
     imgs = io.read_ptn(ptn_path, ptn_shape)
-    io.write_nrrd(imgs, nrrd_path, header)
+    io.write_nrrd(imgs, nrrd_path, header, is_flip)
 
 
 def nrrd2ptn(nrrd_path, ptn_path):

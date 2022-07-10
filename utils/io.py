@@ -92,7 +92,7 @@ def read_nrrd(path):
     return imgs
 
 
-def write_nrrd(images, path, header=None):
+def write_nrrd(images, path, header=None, is_flip=True):
     """
     Writes a nrrd file from a list of images.
     param: images: list of images
@@ -105,8 +105,11 @@ def write_nrrd(images, path, header=None):
             'space origin': [0, 0, 0]
         }
 
-    arr = np.array(list(map(lambda img: np.array(rescale_to_float(img)), images)))
-    arr = np.flip(arr.T, axis=-1)
+    arr = np.array(list(map(lambda img: np.array(rescale_to_float(img)), images))).T
+
+    if is_flip:
+        arr = np.flip(arr.T, axis=-1)
+
     nrrd.write(path, arr, header)
 
 

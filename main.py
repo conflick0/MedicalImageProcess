@@ -28,14 +28,15 @@ def test_ptn2img():
 
 
 def test_ptn2nrrd():
-    ptn_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.ptn'
-    nrrd_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.nrrd'
+    ptn_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_05\GT_05_380.ptn'
+    nrrd_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_05\GT.nrrd'
+    #  (left, right), (posterior, anterior), (inferior, superior)
     header = {
         'space': 'left-posterior-superior',
-        'space directions': [[0.37695312, 0, 0], [0, 0.37695312, 0], [0, 0, 0.5]],
-        'space origin': [-67.31152344, -279.31152344, -293],
+        'space directions': [[0.4296875, 0, 0], [0, 0.4296875, 0], [0, 0, 0.4]],
+        'space origin': [-74.78515625, -313.28515625, -159.200000000],
     }
-    cvt.ptn2nrrd(ptn_path, nrrd_path, ptn_shape=(512, 512, 267), header=header)
+    cvt.ptn2nrrd(ptn_path, nrrd_path, ptn_shape=(512, 512, 380), header=header, is_flip=False)
 
 
 def test_nrrd2ptn():
@@ -46,4 +47,4 @@ def test_nrrd2ptn():
 
 if __name__ == '__main__':
     test_ptn2nrrd()
-    test_nrrd2ptn()
+    # test_nrrd2ptn()
