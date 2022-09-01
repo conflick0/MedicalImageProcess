@@ -1,5 +1,5 @@
 from utils import convert as cvt
-
+import numpy as np
 
 def test_dcm2img():
     dcm_dir = r'D:\home\school\ntut\dataset\corcta\corcta_dcm'
@@ -27,16 +27,8 @@ def test_ptn2img():
     cvt.ptn2img(ptn_path1, img_dir1, (512, 512, 267), 'bmp')
 
 
-def test_ptn2nrrd():
-    ptn_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_05\GT_05_380.ptn'
-    nrrd_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_05\GT.nrrd'
-    #  (left, right), (posterior, anterior), (inferior, superior)
-    header = {
-        'space': 'left-posterior-superior',
-        'space directions': [[0.4296875, 0, 0], [0, 0.4296875, 0], [0, 0, 0.4]],
-        'space origin': [-74.78515625, -313.28515625, -159.200000000],
-    }
-    cvt.ptn2nrrd(ptn_path, nrrd_path, ptn_shape=(512, 512, 380), header=header, is_flip=False)
+def test_ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header, is_flip=True):
+    cvt.ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header=header, is_flip=is_flip)
 
 
 def test_nrrd2ptn():
@@ -46,5 +38,28 @@ def test_nrrd2ptn():
 
 
 if __name__ == '__main__':
-    test_ptn2nrrd()
-    # test_nrrd2ptn()
+    #  (left, right), (posterior, anterior), (inferior, superior)
+    # 'right-anterior-inferior' 'left-posterior-superior'
+
+    ptn_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_108\case108.ptn'
+    # nrrd_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_05\GT_2.nrrd'
+    nrrd_path = r'C:\Users\jack\Downloads\GT_2.nrrd'
+
+    ptn_shape = [512, 512, 267]
+
+    header = {
+        'space': 'left-posterior-superior',
+        'space directions': [
+            [0.3359375, 0, 0],
+            [0, 0.3359375, 0],
+            [0, 0, 0.5]
+        ],
+        'space origin': list(np.array(
+            [45.83203125, 257.83203125, 246.8]
+        ) * -1),
+    }
+
+    is_flip = True
+
+    test_ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header, is_flip)
+

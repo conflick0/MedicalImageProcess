@@ -108,7 +108,7 @@ def write_nrrd(images, path, header=None, is_flip=True):
     arr = np.array(list(map(lambda img: np.array(rescale_to_float(img)), images))).T
 
     if is_flip:
-        arr = np.flip(arr.T, axis=-1)
+        arr = np.flip(arr, axis=-1)
 
     nrrd.write(path, arr, header)
 
