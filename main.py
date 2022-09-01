@@ -17,7 +17,6 @@ if __name__ == '__main__':
     # 'right-anterior-inferior' 'left-posterior-superior'
 
     ptn_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_108\case108.ptn'
-    # nrrd_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_05\GT_2.nrrd'
     nrrd_path = r'C:\Users\jack\Downloads\GT_2.nrrd'
 
     ptn_shape = [512, 512, 267]
