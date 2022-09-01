@@ -61,5 +61,8 @@ if __name__ == '__main__':
 
     is_flip = True
 
+    print(f'load ptn from: {ptn_path}')
+    print(f'convert ...')
     test_ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header, is_flip)
-
+    print(f'done.')
+    print(f'save nrrd to: {nrrd_path}')
