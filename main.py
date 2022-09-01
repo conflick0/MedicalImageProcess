@@ -6,21 +6,15 @@ def test_ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header, is_flip=True):
     cvt.ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header=header, is_flip=is_flip)
 
 
-def test_nrrd2ptn():
-    ptn_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.ptn'
-    nrrd_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.nrrd'
-    cvt.nrrd2ptn(nrrd_path, ptn_path)
-
-
 if __name__ == '__main__':
-    #  (left, right), (posterior, anterior), (inferior, superior)
-    # 'right-anterior-inferior' 'left-posterior-superior'
-
+    # file path
     ptn_path = r'D:\home\school\ntut\dataset\chgh\source\Patient_108\case108.ptn'
     nrrd_path = r'C:\Users\jack\Downloads\GT_2.nrrd'
 
+    # file shape
     ptn_shape = [512, 512, 267]
 
+    # file info
     header = {
         'space': 'left-posterior-superior',
         'space directions': [
@@ -33,8 +27,10 @@ if __name__ == '__main__':
         ) * -1),
     }
 
+    # is_flip: True / False
     is_flip = True
 
+    # convert ptn2nrrd
     print(f'load ptn from: {ptn_path}')
     print(f'convert ...')
     test_ptn2nrrd(ptn_path, nrrd_path, ptn_shape, header, is_flip)

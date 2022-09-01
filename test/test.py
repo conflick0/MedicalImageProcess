@@ -25,3 +25,9 @@ def test_ptn2img():
     cvt.ptn2img(ptn_path, img_dir, (512, 512, 267), 'bmp')
     cvt.img2ptn(img_dir, ptn_path1)
     cvt.ptn2img(ptn_path1, img_dir1, (512, 512, 267), 'bmp')
+
+
+def test_nrrd2ptn():
+    ptn_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.ptn'
+    nrrd_path = r'C:\Users\jack\Downloads\latest_segment_512_512_267.nrrd'
+    cvt.nrrd2ptn(nrrd_path, ptn_path)
